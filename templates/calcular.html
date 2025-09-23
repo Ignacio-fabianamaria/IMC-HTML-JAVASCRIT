@@ -1,0 +1,48 @@
+<div class="mb-4 mt-4">
+  <h1 class="text-center">Calcular IMC</h1>
+  <div class="m-4 p-4">
+    <form class="mx-auto w-50" id="imc-formulario">
+      <div class="form-group mb-4">
+        <label for="inputNome">Nome</label>
+        <input type="text" class="form-control" id="inputNome" placeholder="Digite seu nome" required>
+      </div>
+      <div class="form-group mb-4">
+        <label for="inputIdade">Sua idade</label>
+        <input type="number" class="form-control" id="inputIdade" placeholder="Digite sua idade" required>
+      </div>
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="inputPeso" class="form-label">Seu peso (kg)</label>
+            <input type="text" class="form-control" id="inputPeso" placeholder="72.5" required>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="inputAltura" class="form-label">Sua altura (m)</label>
+            <input type="text" class="form-control" id="inputAltura" placeholder="1.75" required>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="calcular-btn" class="btn btn-primary" >Calcular</button>
+    </form>
+  </div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+      </div>
+      <div class="modal-body" id="modal-body-imc">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

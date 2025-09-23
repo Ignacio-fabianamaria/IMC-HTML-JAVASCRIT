@@ -1,0 +1,26 @@
+[
+  {
+    "titulo": "Abaixo do peso",
+    "classificacao": "IMC abaixo de 18,5",
+    "imagem": "https://img.freepik.com/vetores-premium/impressao_753212-1294.jpg",
+    "texto": "Ter um IMC abaixo de 18,5 pode indicar desnutrição ou outros problemas de saúde. É importante buscar orientação médica e nutricional para avaliar a causa e adotar medidas adequadas para alcançar um peso saudável."
+  },
+  {
+    "titulo": "Normal",
+    "classificacao": "IMC entre 18,5 - 24,9",
+    "imagem": "https://static.vecteezy.com/ti/vetor-gratis/p1/2250482-menino-bonito-usar-balanca-de-peso-gratis-vetor.jpg",
+    "texto": "Um IMC entre 18,5 e 24,9 é considerado saudável. Manter esse intervalo está associado a menores riscos de doenças relacionadas ao peso. É recomendável manter uma alimentação equilibrada e praticar atividades físicas regularmente."
+  },
+  {
+    "titulo": "Sobrepeso",
+    "classificacao": "IMC entre 25 - 29,9",
+    "imagem": "https://img.freepik.com/vetores-premium/triste-mulher-gorda-e-deprimida-com-sobrepeso-fica-em-uma-balanca-chocada-com-o-ganho-de-peso-ilustracao-em-vetor-de-desenho-animado-em-estilo-simples_357257-1444.jpg",
+    "texto": "IMC entre 25 e 29,9 indica sobrepeso. Indivíduos nesta faixa podem estar em risco de desenvolver doenças como diabetes tipo 2, hipertensão e doenças cardíacas. É recomendável adotar uma alimentação saudável e aumentar a atividade física."
+  },
+  {
+    "titulo": "Obesidade",
+    "classificacao": "IMC acima de 30",
+    "imagem": "https://img.freepik.com/vetores-premium/jovem-gordo-com-problema-de-obesidade-engajado-em-aptidao-para-perder-peso-e-saude_181313-2958.jpg",
+    "texto": "IMC acima de 30 caracteriza obesidade, com risco aumentado para doenças como diabetes tipo 2, hipertensão e doenças cardíacas. É essencial buscar acompanhamento médico e nutricional para desenvolver um plano de tratamento adequado."
+  }
+]

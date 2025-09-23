@@ -1,0 +1,83 @@
+<div class="mb-4 mt-4">
+  <h1 class="text-center">Dicas para manter um IMC saudável</h1>
+  <div class="mb-4 mt-4">
+    <p class="fw-bold mb-1">Alimentação equilibrada</p>
+    <p class="mb-0">
+      Inclua frutas, verduras, legumes, cereais integrais e proteínas magras na sua dieta.
+      Evite alimentos ultraprocessados, ricos em açúcar e gordura saturada.
+    </p>
+  </div>
+  <div class="mb-4 mt-4">
+    <p class="fw-bold mb-1">Pratique atividade física regularmente</p>
+    <p class="mb-0">
+      Tente se exercitar pelo menos 150 minutos por semana com atividades moderadas, como caminhada ou bicicleta.
+      Combine exercícios aeróbicos e de fortalecimento muscular.
+    </p>
+  </div>
+  <div class="mb-4 mt-4">
+    <p class="fw-bold mb-1">Mantenha hábitos saudáveis</p>
+    <p class="mb-0">
+      Durma bem: o sono adequado ajuda a regular o metabolismo.
+      Beba bastante água e evite o consumo excessivo de bebidas açucaradas.
+      Evite o consumo excessivo de álcool e o tabagismo.
+    </p>
+  </div>
+  <div class="mb-4 mt-4">
+    <p class="fw-bold mb-1">Monitore seu peso e IMC</p>
+    <p class="mb-0">
+      Realize o cálculo do IMC periodicamente como referência, mas lembre-se que ele não avalia a composição corporal
+      completa.
+      Consulte um(a) nutricionista ou médico(a) para orientação individualizada.
+    </p>
+  </div>
+  <div class="mb-4 mt-4">
+    <p class="fw-bold mb-1">Atenção à saúde mental</p>
+    <p class="mb-0">
+      O estresse e a ansiedade podem influenciar hábitos alimentares.
+      Busque técnicas de relaxamento, como meditação, respiração ou hobbies prazerosos.
+    </p>
+  </div>
+    <hr class="my-2">
+    <div class="text-center mt-4">
+    <p class="mb-2">Tem alguma dúvida ou sugestão? Entre em contato conosco!</p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Enviar mensagem
+    </button>
+  </div>
+
+</div>
+</div>
+<!--Modal para contato-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tem alguma dúvida ou sugestão? </h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="name" class="col-form-label">Nome:</label>
+            <input type="text" class="form-control" id="mensagem-nome">
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">E-mail:</label>
+            <input type="email" class="form-control" id="mensagem-email">
+          </div>
+          <div class="form-group">
+            <label for="assunto" class="col-form-label">Assunto:</label>
+            <input type="text" class="form-control" id="mensagem-assunto">
+          </div>
+          <div class="form-group">
+            <label for="mensagem-texto" class="col-form-label">Mensagem:</label>
+            <textarea class="form-control" id="mensagem-texto"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" id="enviar-mensagem">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
