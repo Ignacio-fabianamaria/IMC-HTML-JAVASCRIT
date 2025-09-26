@@ -10,24 +10,27 @@
 1. **Calculadora de IMC**  
    - Permite calcular o IMC a partir do peso e altura do usuário.
    - Exibe o resultado em um modal com informações detalhadas (nome, idade, peso, altura e IMC).
-   ![IMC](assets/imc.png){width=400} 
 
+      <img src="assets/imc.png" width="400" />  
 
 2. **Classificação do IMC**  
    - Tela que mostra faixas de classificação do IMC com cards informativos.
    - Cada card contém título, imagem, classificação e descrição detalhada.
-   ![Classificação](assets/classificacao.png){width=400}  
+
+     <img src="assets/classificacao.png" width="400" />  
 
 3. **Dicas e Sugestões**  
    - Formulário para enviar dúvidas ou sugestões.
    - As mensagens enviadas são armazenadas em uma API externa (CRUD CRUD).
-   ![Dicas](assets/dicas.png){width=400} 
+
+     <img src="assets/dicas.png" width="400" />  
 
 4. **Mensagens Recebidas**  
    - Tela que exibe as mensagens enviadas em cards.
    - Permite favoritar mensagens clicando na estrela e excluir mensagens.
    - As alterações são persistidas na API (favorito e exclusão).
-   ![Mensagens](assets/mensagens.png){width=400}  
+
+     <img src="assets/mensagens.png" width="400" />  
 
 ---
 
@@ -70,7 +73,7 @@ const apiUrl = "https://sua-nova-url.crudcrud.com";
 
 ## Como o Código Funciona
 
-O projeto **Equilibrio+** possui várias funções que organizam o comportamento das telas e interações. Aqui está uma explicação detalhada de cada uma:
+O projeto **Equilibrio+** possui várias funções que organizam o comportamento das telas e interações. 
 
 ### 1. `getTemplate(pagina)`
 
