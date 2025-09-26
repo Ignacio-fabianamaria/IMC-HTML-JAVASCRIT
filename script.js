@@ -1,4 +1,6 @@
+const apiUrl = "https://crudcrud.com/api/67a7dc4203bd434aaf4a5c8806115423"
 let data = [];
+
 
 // Renderização dinâmica da main
 const getTemplate = (pagina) => {
@@ -152,12 +154,12 @@ const postMensagem = async () => {
     nome: inputNomeMensagem,
     assunto: inputAssuntoMensagem,
     mensagem: inputTextoMensagem,
+    favorito:false,
     data: new Date().toISOString(),
   };
 
   try {
-    const response = await fetch(
-      "https://crudcrud.com/api/62bafb2034f04fc8831c9b8368b2d194/mensagens",
+    const response = await fetch(`${apiUrl}/mensagens`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -177,9 +179,7 @@ const postMensagem = async () => {
 //Capturando a lista de mensagens da api
 const getMensagens = async () => {
   try {
-    const response = await fetch(
-      "https://crudcrud.com/api/62bafb2034f04fc8831c9b8368b2d194/mensagens"
-    );
+    const response = await fetch(`${apiUrl}/mensagens`);
     if (response.ok) {
       data = await response.json();
       console.log(data);
@@ -201,43 +201,85 @@ const generateMensagensCards = () => {
 
   data.map((item) => {
     const card = `
-      <div class="card h-100 border-info mb-3" style="max-width: 18rem;">
+      <div class="card h-100 border-primary mb-3" style="max-width: 18rem;">
         <div class="card-header d-flex justify-content-between align-items-center">
           ${item.nome}
-          <a href="#" class="btn-delete" data-id="${item._id}">
-            <i class="bi bi-trash-fill text-danger"></i>
-          </a>
+          <i class="btn-fav bi ${item.favorito ? "bi-star-fill text-warning" : "bi-star"}" 
+            data-id="${item._id}" 
+            style="cursor:pointer;">
+          </i>
         </div>
         <div class="card-body">
           <h5 class="card-title">${item.assunto}</h5>
           <p class="card-text">${item.mensagem}</p>
         </div>
+        <div class="d-flex justify-content-end p-2">
+        <a href="#" class="btn-delete" data-id="${item._id}">
+        <i class="bi bi-trash-fill text-danger"></i>
+        </a>
+        </div>
       </div>
+      
     `;
     cardContainer.innerHTML += card;
   });
 
-  // Excluindo uma mensagem
-document.querySelectorAll(".btn-delete").forEach((btn) => {
-  btn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    const id = e.currentTarget.getAttribute("data-id");
-    const cardMensagem = e.currentTarget.closest(".card"); 
+ // adicionando um listener de clique
+  cardContainer.addEventListener("click", async (e) => {
+    const target = e.target; // pega o elemento exato que foi clicado pelo usuário.
 
-    try {
-      const response = await fetch(
-        `https://crudcrud.com/api/62bafb2034f04fc8831c9b8368b2d194/mensagens/${id}`,
-        { method: "DELETE" }
-      );
+    // Deletando uma mensagem:
+    // target.closest(".btn-delete")  procura o elemento mais próximo acima na hierarquia do DOM que tenha a classe "btn-delete"
+    if (target.closest(".btn-delete")) { 
+      e.preventDefault();
+      const id = target.closest(".btn-delete").getAttribute("data-id");
+      const cardElement = target.closest(".card");
 
-      if (response.ok) {
-        console.log("Mensagem excluída com sucesso!");
-        cardMensagem.remove();
-      } 
-    } catch (error) {
-      console.error("Erro de rede:", error);
+      try {
+        const response = await fetch(`${apiUrl}/mensagens/${id}`, {
+          method: "DELETE",
+        });
+        if (response.ok) {
+          console.log("Mensagem excluída!");
+          cardElement.remove();
+          // Remove do array local
+          data = data.filter((msg) => msg._id !== id);
+        }
+      } catch (error) {
+        console.error("Erro de rede:", error);
+      }
+    }
+
+    // Favoritando uma mensagem
+    // target.classList.contains("btn-fav"): Verifica se o elemento clicado (target) tem a classe "btn-fav"
+    if (target.classList.contains("btn-fav")) {
+      const starIcon = target;
+      const id = starIcon.getAttribute("data-id");
+      const isFavorito = starIcon.classList.contains("bi-star-fill");
+      // procura a mensagem na lista 'data' pelo id
+      const mensagem = data.find((msg) => msg._id === id);
+      // desconstroi o objeto mensagem para enviar para api sem o id
+      const { _id, ...novaMensagem } = mensagem;
+
+      try {
+        const response = await fetch(`${apiUrl}/mensagens/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...novaMensagem, favorito: !isFavorito }),
+          //envia a mensagem atualizada com o campo favorito invertico com o 'isFavorito
+        });
+
+        if (response.ok) {
+          console.log("Mensagem atualizada!");
+          // Atualiza ícone na tela
+          isFavorito ? starIcon.className = "btn-fav bi-star" : starIcon.className = "btn-fav bi-star-fill text-warning";
+          // Atualiza array local
+          mensagem.favorito = !isFavorito;
+        }
+      } catch (error) {
+        console.error("Erro de rede:", error);
+      }
     }
   });
-});
 
 };
